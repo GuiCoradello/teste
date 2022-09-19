@@ -1,12 +1,5 @@
-const inputs = document.querySelectorAll('[data-inputs]');
 const selecionarInputs = document.querySelector('[data-selecionarInput]');
-selecionarInputs.addEventListener('click',() => {
-    for(let i = 0 ; i < inputs.length ;i++){
-       checarImputs(inputs[i])
-
-    }
-
-})
+selecionarInputs.addEventListener('click',checarImputs)
 
 const desmarcarInputs = document.querySelector('[data-desmarcarInput]');
 desmarcarInputs.addEventListener('click',() => {
@@ -17,10 +10,9 @@ desmarcarInputs.addEventListener('click',() => {
  }
 })
 
-function checarImputs (input) {
-    if(!input.hasAttribute("checked")){
-        input.setAttribute("checked", "checked") 
-    }else {
-        input.removeAttribute('checked')
+function checarImputs () {
+    const inputs = document.querySelectorAll('[data-inputs]');
+    for(let i = 0 ; i < inputs.length ;i++){
+            inputs[i].setAttribute("checked", "checked") 
     }
 }
