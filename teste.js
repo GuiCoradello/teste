@@ -1,20 +1,26 @@
 const inputs = document.querySelectorAll('[data-inputs]');
-const selecionarInput = document.querySelector('[data-selecionarInput]');
-selecionarInput.addEventListener('click',() => {
+const selecionarInputs = document.querySelector('[data-selecionarInput]');
+selecionarInputs.addEventListener('click',() => {
     for(let i = 0 ; i < inputs.length ;i++){
-        if(!inputs[i].checked){
-         inputs[i].setAttribute('checked', 'checked')
-        }
+       checarImputs(inputs[i])
 
     }
 
 })
 
-const desmarcarInput = document.querySelector('[data-desmarcarInput]');
-desmarcarInput.addEventListener('click',() => {
+const desmarcarInputs = document.querySelector('[data-desmarcarInput]');
+desmarcarInputs.addEventListener('click',() => {
  for(let i= 0 ; i< inputs.length ; i++){
     if(inputs[i].checked){
         inputs[i].removeAttribute('checked', 'checked')
        }
  }
 })
+
+function checarImputs (input) {
+    if(!input.hasAttribute("checked")){
+        input.setAttribute("checked", "checked") 
+    }else {
+        input.removeAttribute('checked')
+    }
+}
